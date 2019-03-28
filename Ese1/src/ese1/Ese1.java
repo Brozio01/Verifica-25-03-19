@@ -21,8 +21,8 @@ public class Ese1 {
         Scanner sc = new Scanner(System.in);
         String c = "";
         datiCondivisi datiC = new datiCondivisi();
-        ThPiattello piattello1 = new ThPiattello(1);
-        ThPiattello piattello2 = new ThPiattello(2);
+        ThPiattello piattello1 = new ThPiattello(1, datiC);
+        ThPiattello piattello2 = new ThPiattello(2, datiC);
         ThProiettile proiettile1 = new ThProiettile(1, datiC);
         ThProiettile proiettile2 = new ThProiettile(2, datiC);
                 

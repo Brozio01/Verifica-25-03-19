@@ -12,14 +12,27 @@ package ese1;
 public class ThPiattello extends Thread {
 
     private Integer nPiattello;
+    private datiCondivisi datiC;
 
-    public ThPiattello(int n) {
+    public ThPiattello(int n, datiCondivisi datiC) {
         nPiattello = n;
+        this.datiC = datiC;
     }
 
     @Override
     public void run() {
+        if (nPiattello == 1) {
+            datiC.aspettaSparo1();
+        } else {
+            datiC.aspettaLancio2();
+        }
         System.out.println("Piattello" + nPiattello.toString() + " partito");
+        
+        if (nPiattello == 1) {
+            datiC.segnalaLancio1();
+        }
+        else
+            datiC.segnalaLancio2();
     }
 
 }

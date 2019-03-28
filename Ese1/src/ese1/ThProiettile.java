@@ -30,14 +30,22 @@ public class ThProiettile extends Thread {
     @Override
     public void run() {
         try {
+            if (nProittile == 1) {
+                datiC.aspettaLancio1();
+            }
+            else
+                datiC.aspettaLancio2();
+            
             attesa += rn.nextInt(1);
             this.join(attesa);
             System.out.println("Proiettile" + nProittile.toString() + " sparato");
 
             if (nProittile == 1) {
                 datiC.setColpito1(true);
+                datiC.segnalaSparo1();
             } else {
                 datiC.setColpito2(true);
+                datiC.segnalaSparo2();
             }
         } catch (InterruptedException ex) {
             Logger.getLogger(ThProiettile.class.getName()).log(Level.SEVERE, null, ex);
