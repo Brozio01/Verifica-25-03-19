@@ -19,7 +19,7 @@ public class ThProiettile extends Thread {
     Random rn;
     long attesa;
 
-    public ThProiettile(Integer nProittile) {
+    public ThProiettile(int nProittile) {
         this.nProittile = nProittile;
         rn = new Random();
         attesa = 1000;

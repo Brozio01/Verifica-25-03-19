@@ -20,6 +20,11 @@ public class Ese1 {
         // TODO code application logic here
         Scanner sc = new Scanner(System.in);
         String c = "";
+        ThPiattello piattello1 = new ThPiattello(1);
+        ThPiattello piattello2 = new ThPiattello(2);
+        ThProiettile proiettile1 = new ThProiettile(1);
+        ThProiettile proiettile2 = new ThProiettile(2);
+        datiCondivisi datiC = new datiCondivisi();
         
         do {            
             System.out.println("Inserisci P per lanciare i piattelli");
