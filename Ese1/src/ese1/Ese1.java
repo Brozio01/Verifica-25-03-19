@@ -30,10 +30,10 @@ public class Ese1 {
             System.out.println("Inserisci P per lanciare i piattelli");
             c = sc.nextLine().toUpperCase();
             
-            if (c != "P") {
+            if (!c.equals("P")) {
                 System.out.println("Errore di input!");
             }
-        } while (c != "P");
+        } while (!c.equals("P"));
         c = "";
         
         //lancio piattelli
@@ -44,10 +44,10 @@ public class Ese1 {
             System.out.println("Inserisci S per sparare il primo proiettile");
             c = sc.nextLine().toUpperCase();
             
-            if (c != "S") {
+            if (!c.equals("S")) {
                 System.out.println("Errore di input!");
             }
-        } while (c != "S");
+        } while (!c.equals("P"));
         c = "";
         
         //sparo primo primo proiettile
@@ -61,10 +61,10 @@ public class Ese1 {
             System.out.println("Inserisci S per sparare il primo proiettile");
             c = sc.nextLine().toUpperCase();
             
-            if (c != "S") {
+            if (!c.equals("P")) {
                 System.out.println("Errore di input!");
             }
-        } while (c != "S");
+        } while (!c.equals("P"));
         c = "";
         
         //sparo secondo proiettile
