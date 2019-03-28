@@ -47,7 +47,7 @@ public class Ese1 {
             if (!c.equals("S")) {
                 System.out.println("Errore di input!");
             }
-        } while (!c.equals("P"));
+        } while (!c.equals("S"));
         c = "";
         
         //sparo primo primo proiettile
@@ -61,10 +61,10 @@ public class Ese1 {
             System.out.println("Inserisci S per sparare il primo proiettile");
             c = sc.nextLine().toUpperCase();
             
-            if (!c.equals("P")) {
+            if (!c.equals("S")) {
                 System.out.println("Errore di input!");
             }
-        } while (!c.equals("P"));
+        } while (!c.equals("S"));
         c = "";
         
         //sparo secondo proiettile
