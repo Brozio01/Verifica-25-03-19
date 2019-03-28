@@ -20,10 +20,16 @@ public class Ese2 {
         // TODO code application logic here
         Scanner sc = new Scanner(System.in);
         String s = "";
+        datiCondivisi datiC = new datiCondivisi();
+        ThInput input = new ThInput(datiC);
+        ThCerca cerca1 = new ThCerca(datiC, 1);
+        ThCerca cerca2 = new ThCerca(datiC, 2);
+        ThStampa stampa = new ThStampa(datiC);
         
         do {
             s += sc.nextLine();
             //setStr
+            
             //segnalo avvnuto input
             s = "";
         } while (s.equals("\n"));
