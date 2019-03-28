@@ -19,7 +19,7 @@ public class ThPiattello extends Thread {
 
     @Override
     public void run() {
-        System.out.println("Piattello " + nPiattello.toString() + " partito");
+        System.out.println("Piattello" + nPiattello.toString() + " partito");
     }
 
 }

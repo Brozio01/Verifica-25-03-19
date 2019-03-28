@@ -17,22 +17,22 @@ public class ThProiettile extends Thread {
 
     private Integer nProittile;
     private Random rn;
-    private long attesa;
+    private int attesa;
     private datiCondivisi datiC;
 
     public ThProiettile(int nProittile, datiCondivisi datiC) {
         this.nProittile = nProittile;
         this.datiC = datiC;
         rn = new Random();
-        attesa = 1000;
+        attesa = 1;
     }
 
     @Override
     public void run() {
         try {
-            attesa += rn.nextLong();
+            attesa += rn.nextInt(1);
             this.join(attesa);
-            System.out.println("Proiettile " + nProittile.toString() + " sparato");
+            System.out.println("Proiettile" + nProittile.toString() + " sparato");
 
             if (nProittile == 1) {
                 datiC.setColpito1(true);
