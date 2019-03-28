@@ -10,9 +10,9 @@ package ese1;
  * @author borzi_davide
  */
 public class ThPiattello extends Thread {
-    
-    Integer nPiattello;
-    
+
+    private Integer nPiattello;
+
     public ThPiattello(int n) {
         nPiattello = n;
     }
@@ -21,6 +21,5 @@ public class ThPiattello extends Thread {
     public void run() {
         System.out.println("Piattello " + nPiattello.toString() + " partito");
     }
-    
-    
+
 }

@@ -14,13 +14,15 @@ import java.util.logging.Logger;
  * @author borzi_davide
  */
 public class ThProiettile extends Thread {
-    
-    Integer nProittile;
-    Random rn;
-    long attesa;
 
-    public ThProiettile(int nProittile) {
+    private Integer nProittile;
+    private Random rn;
+    private long attesa;
+    private datiCondivisi datiC;
+
+    public ThProiettile(int nProittile, datiCondivisi datiC) {
         this.nProittile = nProittile;
+        this.datiC = datiC;
         rn = new Random();
         attesa = 1000;
     }
@@ -31,6 +33,12 @@ public class ThProiettile extends Thread {
             attesa += rn.nextLong();
             this.join(attesa);
             System.out.println("Proiettile " + nProittile.toString() + " sparato");
+
+            if (nProittile == 1) {
+                datiC.setColpito1(true);
+            } else {
+                datiC.setColpito2(true);
+            }
         } catch (InterruptedException ex) {
             Logger.getLogger(ThProiettile.class.getName()).log(Level.SEVERE, null, ex);
         }
