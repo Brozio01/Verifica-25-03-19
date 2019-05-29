@@ -21,15 +21,8 @@ public class EsercizioPreverifica {
         int numGen = 0;
         Scanner sc = new Scanner(System.in);
         boolean giusto = false;
-        do {
-            System.out.println("Quanti numeri vuoi generare? [0-36] ");
-            numGen = sc.nextInt();
-            if (numGen >= 0 && numGen <= 36) {
-                giusto = true;
-            } else {
-                System.out.println("Input errato!");
-            }
-        } while (!giusto);
+        System.out.println("Quanti numeri vuoi generare?");
+        numGen = sc.nextInt();
 
         DatiCondivisi datiC = new DatiCondivisi(numGen);
         ThGenera gen = new ThGenera(datiC);
@@ -37,13 +30,13 @@ public class EsercizioPreverifica {
         ThCerca searchSec = new ThCerca(datiC, 2);
         ThCerca searchThird = new ThCerca(datiC, 3);
         ThStampa stampa = new ThStampa(datiC);
-        
+
         gen.start();
         searchFirst.start();
         searchSec.start();
         searchThird.start();
         stampa.start();
-        
+
         gen.interrupt();
         searchFirst.interrupt();
         searchSec.interrupt();
@@ -54,7 +47,7 @@ public class EsercizioPreverifica {
             searchFirst.join();
             searchSec.join();
             searchThird.join();
-            stampa.join();                  
+            stampa.join();
         } catch (InterruptedException e) {
         }
     }

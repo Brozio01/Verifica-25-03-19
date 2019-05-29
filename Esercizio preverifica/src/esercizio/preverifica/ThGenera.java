@@ -24,16 +24,9 @@ public class ThGenera extends Thread {
         for (int i = 0; i < datiC.getNumGen(); i++) {
             //aspetta avvenuta stampa
             datiC.aspettaStampa();
-            
+
             Random rn = new Random();
             int n = 1 + rn.nextInt(36);
-
-            for (int j = 0; j < datiC.getBuffer().size(); j++) {
-                if (datiC.getBuffer().elementAt(j) == n) {
-                    n = 1 + rn.nextInt(36);
-                }
-            }
-
             int temp = n % 3;
             datiC.getBuffer().add(n);
             
