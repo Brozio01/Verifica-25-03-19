@@ -46,7 +46,5 @@ public class ThCerca extends Thread {
             //segnala al thread stampa che la ricerca è avvenuta
             datiC.segnalaRicerca();
         }
-        if (Thread.currentThread().isInterrupted())
-            return;;
     }
 }

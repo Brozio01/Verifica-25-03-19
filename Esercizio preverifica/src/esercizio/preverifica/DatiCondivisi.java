@@ -13,28 +13,32 @@ import java.util.concurrent.Semaphore;
  * @author Davide
  */
 public class DatiCondivisi {
+
     private Vector<Integer> buffer;
-    
+
     private int firstInserite, secondInserite, thirdInserite;
     private int firstLette, secondLette, thirdLette;
     private int numGen;
-    
+
     private Semaphore stampa, ricerca;
     private Semaphore genPrimo, genSecondo, genTerzo;
 
     public DatiCondivisi(int numGen) {
         this.numGen = numGen;
         buffer = new Vector();
-        firstInserite = 0; firstLette = 0;
-        secondInserite = 0; secondLette = 0;
-        thirdInserite = 0; thirdLette = 0;
+        firstInserite = 0;
+        firstLette = 0;
+        secondInserite = 0;
+        secondLette = 0;
+        thirdInserite = 0;
+        thirdLette = 0;
         stampa = new Semaphore(1);
         genPrimo = new Semaphore(0);
         genSecondo = new Semaphore(0);
         genTerzo = new Semaphore(0);
         ricerca = new Semaphore(0);
     }
-    
+
     //=====GET E SET=====
     public synchronized Vector<Integer> getBuffer() {
         return buffer;
@@ -96,61 +100,60 @@ public class DatiCondivisi {
         this.numGen = numGen;
     }
     //=====GET E SET=====
-    
-    
+
     //======SEMAFORI====== (sono in ordine di chiamata)
-    public void aspettaStampa(){
+    public void aspettaStampa() {
         try {
             stampa.acquire();
         } catch (InterruptedException ex) {
         }
     }
-    
-    public void segnalaGenerazioneNumeroPrimo(){
+
+    public void segnalaGenerazioneNumeroPrimo() {
         genPrimo.release();
     }
-    
-    public void segnalaGenerazioneNumeroSecondo(){
+
+    public void segnalaGenerazioneNumeroSecondo() {
         genSecondo.release();
     }
-    
-    public void segnalaGenerazioneNumeroTerzo(){
+
+    public void segnalaGenerazioneNumeroTerzo() {
         genTerzo.release();
     }
-    
-    public void aspettaGenerazioneNumeroPrimo(){
+
+    public void aspettaGenerazioneNumeroPrimo() {
         try {
             genPrimo.acquire();
         } catch (InterruptedException ex) {
         }
     }
-    
-    public void aspettaGenerazioneNumeroSecondo(){
+
+    public void aspettaGenerazioneNumeroSecondo() {
         try {
             genSecondo.acquire();
         } catch (InterruptedException ex) {
         }
     }
-    
-    public void aspettaGenerazioneNumeroTerzo(){
+
+    public void aspettaGenerazioneNumeroTerzo() {
         try {
             genTerzo.acquire();
         } catch (InterruptedException ex) {
         }
     }
-    
-    public void segnalaRicerca(){
+
+    public void segnalaRicerca() {
         ricerca.release();
     }
-    
-    public void aspettaRicerca(){
+
+    public void aspettaRicerca() {
         try {
             ricerca.acquire();
         } catch (InterruptedException ex) {
         }
     }
-    
-    public void segnalaStampa(){
+
+    public void segnalaStampa() {
         stampa.release();
     }
     //====SEMAFORI====== (sono in ordine di chiamata)

@@ -29,7 +29,7 @@ public class ThGenera extends Thread {
             int n = 1 + rn.nextInt(36);
             int temp = n % 3;
             datiC.getBuffer().add(n);
-            
+
             switch (temp) {
                 case 0:
                     //segnala estrazione numero terzo
@@ -50,7 +50,8 @@ public class ThGenera extends Thread {
                     break;
             }
         }
-        if (Thread.currentThread().isInterrupted())
+        if (Thread.currentThread().isInterrupted()) {
             return;
+        }
     }
 }

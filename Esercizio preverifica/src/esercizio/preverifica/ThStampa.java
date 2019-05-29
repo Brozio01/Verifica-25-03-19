@@ -40,7 +40,8 @@ public class ThStampa extends Thread {
             datiC.segnalaStampa();
             i++;
         }
-        if (Thread.currentThread().isInterrupted())
+        if (Thread.currentThread().isInterrupted()) {
             return;
+        }
     }
 }
