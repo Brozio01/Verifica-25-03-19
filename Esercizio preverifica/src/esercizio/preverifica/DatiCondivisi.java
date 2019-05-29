@@ -106,7 +106,6 @@ public class DatiCondivisi {
         try {
             stampa.acquire();
         } catch (InterruptedException ex) {
-            Logger.getLogger(DatiCondivisi.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
     
@@ -126,7 +125,6 @@ public class DatiCondivisi {
         try {
             genPrimo.acquire();
         } catch (InterruptedException ex) {
-            Logger.getLogger(DatiCondivisi.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
     
@@ -134,7 +132,6 @@ public class DatiCondivisi {
         try {
             genSecondo.acquire();
         } catch (InterruptedException ex) {
-            Logger.getLogger(DatiCondivisi.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
     
@@ -142,7 +139,6 @@ public class DatiCondivisi {
         try {
             genTerzo.acquire();
         } catch (InterruptedException ex) {
-            Logger.getLogger(DatiCondivisi.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
     
@@ -154,7 +150,6 @@ public class DatiCondivisi {
         try {
             ricerca.acquire();
         } catch (InterruptedException ex) {
-            Logger.getLogger(DatiCondivisi.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
     
