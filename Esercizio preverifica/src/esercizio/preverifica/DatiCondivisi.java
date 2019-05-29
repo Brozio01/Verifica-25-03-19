@@ -22,7 +22,8 @@ public class DatiCondivisi {
     private int firstLette, secondLette, thirdLette;
     private int numGen;
     
-    private Semaphore stampa, genNum, ricerca;
+    private Semaphore stampa, ricerca;
+    private Semaphore genPrimo, genSecondo, genTerzo;
 
     public DatiCondivisi(int numGen) {
         this.numGen = numGen;
@@ -31,7 +32,9 @@ public class DatiCondivisi {
         secondInserite = 0; secondLette = 0;
         thirdInserite = 0; thirdLette = 0;
         stampa = new Semaphore(1);
-        genNum = new Semaphore(0);
+        genPrimo = new Semaphore(0);
+        genSecondo = new Semaphore(0);
+        genTerzo = new Semaphore(0);
         ricerca = new Semaphore(0);
     }
     
@@ -103,31 +106,52 @@ public class DatiCondivisi {
         try {
             stampa.acquire();
         } catch (InterruptedException ex) {
+            Logger.getLogger(DatiCondivisi.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
     
-    public void segnalaGenerazioneNumero(){
-        genNum.release();
-        genNum.release();
-        genNum.release();
+    public void segnalaGenerazioneNumeroPrimo(){
+        genPrimo.release();
     }
     
-    public void aspettaGenerazioneNumero(){
+    public void segnalaGenerazioneNumeroSecondo(){
+        genSecondo.release();
+    }
+    
+    public void segnalaGenerazioneNumeroTerzo(){
+        genTerzo.release();
+    }
+    
+    public void aspettaGenerazioneNumeroPrimo(){
         try {
-            genNum.acquire();
+            genPrimo.acquire();
         } catch (InterruptedException ex) {
             Logger.getLogger(DatiCondivisi.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
     
-    public void segnalaRicercaNumero(){
+    public void aspettaGenerazioneNumeroSecondo(){
+        try {
+            genSecondo.acquire();
+        } catch (InterruptedException ex) {
+            Logger.getLogger(DatiCondivisi.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    
+    public void aspettaGenerazioneNumeroTerzo(){
+        try {
+            genTerzo.acquire();
+        } catch (InterruptedException ex) {
+            Logger.getLogger(DatiCondivisi.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    
+    public void segnalaRicerca(){
         ricerca.release();
     }
     
-    public void aspettaRicercaNumero(){
+    public void aspettaRicerca(){
         try {
-            ricerca.acquire();
-            ricerca.acquire();
             ricerca.acquire();
         } catch (InterruptedException ex) {
             Logger.getLogger(DatiCondivisi.class.getName()).log(Level.SEVERE, null, ex);

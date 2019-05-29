@@ -24,6 +24,7 @@ public class ThGenera extends Thread {
         for (int i = 0; i < datiC.getNumGen(); i++) {
             //aspetta avvenuta stampa
             datiC.aspettaStampa();
+            
             Random rn = new Random();
             int n = 1 + rn.nextInt(36);
 
@@ -35,20 +36,28 @@ public class ThGenera extends Thread {
 
             int temp = n % 3;
             datiC.getBuffer().add(n);
+            
             switch (temp) {
                 case 0:
+                    //segnala estrazione numero terzo
+                    datiC.segnalaGenerazioneNumeroTerzo();
                     datiC.incThirdInserite();
                     break;
 
                 case 1:
+                    //segnala estrazione numero primo
+                    datiC.segnalaGenerazioneNumeroPrimo();
                     datiC.incFirstInserite();
                     break;
 
                 case 2:
+                    //segnala estrazione numero secondo
+                    datiC.segnalaGenerazioneNumeroSecondo();
                     datiC.incSecondInserite();
                     break;
             }
-            datiC.segnalaGenerazioneNumero();
         }
+        if (Thread.currentThread().isInterrupted())
+            return;
     }
 }

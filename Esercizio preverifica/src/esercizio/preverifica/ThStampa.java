@@ -20,24 +20,27 @@ public class ThStampa extends Thread {
     @Override
     public void run() {
         int i = 0;
+
         while (i < datiC.getNumGen()) {
             //aspetto ricerca numeri
-            datiC.aspettaRicercaNumero();
-            
-            System.out.println("Valori buffer: ");
+            datiC.aspettaRicerca();
+
+            System.out.println("\nValori buffer: ");
             for (int j = 0; j < datiC.getBuffer().size(); j++) {
-                System.out.print(datiC.getBuffer().elementAt(i) + "-");
+                System.out.print(datiC.getBuffer().elementAt(j) + "\t");
             }
-            System.out.println("Valore firstInserite" + datiC.getFirstInserite());
-            System.out.println("Valore secondInserite" + datiC.getSecondInserite());
-            System.out.println("Valore thirdInserite" + datiC.getThirdInserite());
-            System.out.println("Valore firstLette" + datiC.getFirstLette());
-            System.out.println("Valore secondLette" + datiC.getSecondLette());
-            System.out.println("Valore thirdLette" + datiC.getThirdLette());
+            System.out.println("\nValore firstInserite: " + datiC.getFirstInserite());
+            System.out.println("Valore secondInserite: " + datiC.getSecondInserite());
+            System.out.println("Valore thirdInserite: " + datiC.getThirdInserite());
+            System.out.println("Valore firstLette: " + datiC.getFirstLette());
+            System.out.println("Valore secondLette: " + datiC.getSecondLette());
+            System.out.println("Valore thirdLette: " + datiC.getThirdLette() + "\n\n");
 
             //segnalazione stampa
             datiC.segnalaStampa();
             i++;
         }
+        if (Thread.currentThread().isInterrupted())
+            return;
     }
 }
