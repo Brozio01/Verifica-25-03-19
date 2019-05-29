@@ -5,11 +5,8 @@
  */
 package esercizio.preverifica;
 
-import com.sun.org.apache.bcel.internal.generic.AALOAD;
 import java.util.Vector;
 import java.util.concurrent.Semaphore;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 /**
  *
