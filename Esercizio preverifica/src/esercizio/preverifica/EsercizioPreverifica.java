@@ -37,6 +37,11 @@ public class EsercizioPreverifica {
         searchThird.start();
         stampa.start();
 
+        gen.interrupt();
+        searchFirst.interrupt();
+        searchSec.interrupt();
+        searchThird.interrupt();
+        stampa.interrupt();
         try {
             gen.join();
             searchFirst.join();
@@ -44,11 +49,7 @@ public class EsercizioPreverifica {
             searchThird.join();
             stampa.join();
 
-            gen.interrupt();
-            searchFirst.interrupt();
-            searchSec.interrupt();
-            searchThird.interrupt();
-            stampa.interrupt();
+            
         } catch (InterruptedException e) {
         }
     }
