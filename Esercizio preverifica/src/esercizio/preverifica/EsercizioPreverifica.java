@@ -36,20 +36,22 @@ public class EsercizioPreverifica {
         searchSec.start();
         searchThird.start();
         stampa.start();
-        
+
+//        try {
+//            gen.join();
+//            searchFirst.join();
+//            searchSec.join();
+//            searchThird.join();
+//            stampa.join();
+//        } catch (InterruptedException e) {
+//        }
+
+        while(!datiC.isFinito());
+        datiC.sbloccaTutti();
         gen.interrupt();
         searchFirst.interrupt();
         searchSec.interrupt();
         searchThird.interrupt();
         stampa.interrupt();
-        
-        try {
-            gen.join();
-            searchFirst.join();
-            searchSec.join();
-            searchThird.join();
-            stampa.join();
-        } catch (InterruptedException e) {
-        }
     }
 }
